@@ -1,6 +1,7 @@
 ---
 import Counter from '@/components/Counter';
 import '../styles/global.css';
+import { Button } from '@/components/ui/button';
 
 const name = 'My Astro Site';
 ---
@@ -19,5 +20,17 @@ const name = 'My Astro Site';
         <a href="/blog/">Blog</a>
         <h1 class="text-4xl font-bold underline">{name}</h1>
         <Counter client:load />
+        <form method="POST" action="/api/submit">
+            <div class="input">
+                <label class="text-sm" for="name">Full Name</label>
+                <input
+                    class="border-2 rounded"
+                    id="name"
+                    name="name"
+                    type="text"
+                />
+            </div>
+            <Button type="submit" variant="outline">Submit</Button>
+        </form>
     </body>
 </html>
