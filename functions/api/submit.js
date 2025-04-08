@@ -14,6 +14,7 @@ export async function onRequestPost(context) {
             headers: {
                 location: '/about',
             },
+            status: 302,
         });
         // const response = new Response(null);
         // return response.redirect('/about', 302);
