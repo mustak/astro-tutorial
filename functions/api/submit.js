@@ -11,7 +11,7 @@ export async function onRequestPost(context) {
         //     },
         // });
         const response = new Response(null);
-        return response.redirected('/about', 302);
+        return response.redirect('/about', 302);
     } catch (err) {
         return new Response('Error parsing JSON content', { status: 400 });
     }
