@@ -6,15 +6,17 @@ import { Resend } from 'resend';
 export async function onRequestPost(context) {
     const resend = new Resend('re_PMdRKj8t_6oeWydeFcporU5pRuXijmGJv');
 
+    const { data, error } = await resend.emails.send({
+        from: 'onboarding@resend.dev',
+        to: 'mhyaqub@yahoo.com',
+        subject: 'Hello World',
+        html: '<p>Congrats on sending your <strong>first email</strong>!</p>',
+    });
+
+    return Response.json({ data, error });
+
     try {
         let input = await context.request.formData();
-
-        resend.emails.send({
-            from: 'onboarding@resend.dev',
-            to: 'mhyaqub@yahoo.com',
-            subject: 'Hello World',
-            html: '<p>Congrats on sending your <strong>first email</strong>!</p>',
-        });
         let pretty = JSON.stringify(input, null, 2);
         // return new Response(pretty, {
         //     headers: {
