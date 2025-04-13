@@ -1,9 +1,20 @@
+import { Resend } from 'resend';
+
 /**
  * POST /api/submit
  */
 export async function onRequestPost(context) {
+    const resend = new Resend('re_PMdRKj8t_6oeWydeFcporU5pRuXijmGJv');
+
     try {
         let input = await context.request.formData();
+
+        resend.emails.send({
+            from: 'onboarding@resend.dev',
+            to: 'mhyaqub@yahoo.com',
+            subject: 'Hello World',
+            html: '<p>Congrats on sending your <strong>first email</strong>!</p>',
+        });
         let pretty = JSON.stringify(input, null, 2);
         // return new Response(pretty, {
         //     headers: {
