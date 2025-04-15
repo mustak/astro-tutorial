@@ -1,36 +1,23 @@
 ---
-import Counter from '@/components/Counter';
-import '../styles/global.css';
-import { Button } from '@/components/ui/button';
-
-const name = 'My Astro Site';
+import BaseLayout from "@layout/BaseLayout.astro";
+import Hero from "@sections/HeroSection.astro";
+import FeatureShowcase from "@sections/FeatureShowcase.astro";
+// import FeatureBento from "@sections/FeatureBento.astro";
+import FeatureAnimated from "@sections/FeatureAnimated.astro";
+import FeatureGrid from "@sections/FeatureGrid.astro";
+import CTA from "@sections/CTA.astro";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>My Astro</title>
-    </head>
-    <body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
-        <h1 class="text-4xl font-bold underline">{name}</h1>
-        <Counter client:load />
-        <form method="POST" action="/api/submit">
-            <div class="input">
-                <label class="text-sm" for="name">Full Name</label>
-                <input
-                    class="border-2 rounded"
-                    id="name"
-                    name="name"
-                    type="text"
-                />
-            </div>
-            <Button type="submit" variant="outline">Submit</Button>
-        </form>
-    </body>
-</html>
+<BaseLayout>
+  <Hero />
+
+  <FeatureShowcase />
+
+  {/* <FeatureBento /> */}
+
+  <!-- <FeatureAnimated />
+
+  <FeatureGrid />
+
+  <CTA /> -->
+</BaseLayout>
